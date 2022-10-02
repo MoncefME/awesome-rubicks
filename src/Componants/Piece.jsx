@@ -1,8 +1,10 @@
 import React from 'react'
 
-function Piece({ index, color, faceID }) {
+function Piece({ color, faceID }) {
     return (
-        <div key={index} className={`m-[1px] ${color} border border-black`} onClick={() => console.log(faceID, index)}></div>
+        <div
+            className={`m-[1px] bg-${color} border border-black`}
+            onClick={() => console.log(faceID)}></div>
     )
 }
 
