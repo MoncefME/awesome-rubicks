@@ -6,7 +6,6 @@ const Cube = require('cubejs');
 const shuffle = str => [...str].sort(() => Math.random() - .5).join('');
 const str = "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB";
 const faces = ['U', 'R', 'F', 'D', 'L', 'B'];
-const colors = ['white', 'red-600', 'green-700', 'yellow-300', 'orange-500', 'blue-600'];
 
 function App() {
   const utilArr = [1, 1, 1, 1, 1, 1, 1, 1, 1];
@@ -18,9 +17,11 @@ function App() {
   // console.log("random cube as string", randomCube.asString());
   // console.log("my random cube scramble", Cube.inverse(randomCube.solve()));
   return (
-    <div className='flex flex-col items-center justify-center h-screen'>
-      <h1>My rubick cube</h1>
-      <FlatRubick />
+    <div className='flex items-center justify-center h-screen'>
+
+      <div className='grid grid-areas-layout grid-cols-layout grid-rows-layout w-80 h-60'>
+        <FlatRubick />
+      </div>
     </div>
   );
 }

@@ -6,7 +6,13 @@ const colors = ['white', 'red-600', 'green-700', 'yellow-300', 'orange-500', 'bl
 function FlatRubick() {
     return (
         <div className='grid grid-areas-layout grid-cols-layout grid-rows-layout w-80 h-60'>
-            {faces.map((face, index) => <Face class_Name={`grid-in-face${faces[index]}`} color={`bg-${colors[index]}`} key={index} />)}
+            {faces.map((face, Findex) => <Face key={Findex} class_Name={`grid-in-face${faces[Findex]}`} color={`bg-${colors[Findex]}`} unique={faces[Findex]} />)}
+            {/* <Face class_Name="grid-in-faceU" color="bg-white" />
+            <Face class_Name="grid-in-faceR" color="bg-red-600" />
+            <Face class_Name="grid-in-faceF" color="bg-green-700" />
+            <Face class_Name="grid-in-faceD" color="bg-yellow-300" />
+            <Face class_Name="grid-in-faceL" color="bg-orange-500" />
+            <Face class_Name="grid-in-faceB" color="bg-blue-600" /> */}
         </div>
     )
 }
