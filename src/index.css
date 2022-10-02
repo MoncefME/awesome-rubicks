@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ". faceU . ."
+        "faceL faceF faceR faceB"
+        ". faceD . .";
+}
+
+.faceU {
+    grid-area: faceU;
+}
+
+.faceD {
+    grid-area: faceD;
+}
+
+.faceL {
+    grid-area: faceL;
+}
+
+.faceR {
+    grid-area: faceR;
+}
+
+.faceF {
+    grid-area: faceF;
+}
+
+.faceB {
+    grid-area: faceB;
+}

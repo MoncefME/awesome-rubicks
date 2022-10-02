@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Piece({ color, faceID }) {
+function Piece({ color }) {
+    console.log()
     return (
         <div
             className={`m-[1px] ${color} border border-black`}
             onClick={() => console.log(color)}>
-
         </div>
     )
 }
