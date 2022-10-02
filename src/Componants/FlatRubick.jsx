@@ -1,10 +1,9 @@
 import React from 'react';
 import Face from './Face';
 const faces = ['U', 'R', 'F', 'D', 'L', 'B'];
-const colors = ['white', 'red-600', 'green-700', 'yellow-300', 'orange-500', 'blue-600'];
-// color={`bg-${colors[Findex]}`}
+
 function FlatRubick({ pattern }) {
-    console.log(pattern);
+    console.log("Full Pattern", pattern);
     return (
         <div className='grid grid-areas-layout grid-cols-layout grid-rows-layout w-80 h-60'>
             {faces.map((face, Findex) =>
@@ -13,7 +12,6 @@ function FlatRubick({ pattern }) {
                     unique={faces[Findex]}
                     facePattern={pattern[Findex]} />)
             }
-
         </div>
     )
 }

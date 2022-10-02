@@ -1,34 +1,50 @@
+import { useState } from 'react';
 import './App.css';
 import FlatRubick from './Componants/FlatRubick';
 const Cube = require('cubejs');
-const shuffle = str => [...str].sort(() => Math.random() - .5).join('');
-const str = "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB";
-const faces = ['U', 'R', 'F', 'D', 'L', 'B'];
-const colors = ['white', 'red-600', 'green-700', 'yellow-300', 'orange-500', 'blue-600'];
 
 function App() {
-  const utilArr = [1, 1, 1, 1, 1, 1, 1, 1, 1];
-  // Cube.initSolver();
-  // console.log(str.length);
-  const randomCube = Cube.random();
+  Cube.initSolver();
+
+  const [randomCube, setRandomCube] = useState(Cube.random());
+  const [cubeSolve, setCubeSolve] = useState(Cube.inverse(randomCube.solve()));
+
+  // const randomCube = Cube.random();
   const randomCubeScramble = randomCube.asString().split("");
   const randomCubeMatrix = [];
+
   while (randomCubeScramble.length) {
     randomCubeMatrix.push(randomCubeScramble.splice(0, 9));
   }
 
-  console.log(colors[faces.indexOf(randomCubeMatrix[0][0])]);
-  console.log(randomCubeMatrix);
+  const randomizeCube = () => {
+    setRandomCube(Cube.random());
+    setCubeSolve(Cube.inverse(randomCube.solve()));
+    console.log("my random cube scramble", cubeSolve);
+  }
 
-  // const cube = new Cube();
-  // console.log("cube as strign ", cube.asString());
-  // console.log("random cube as string", randomCube.asString());
-  // console.log("my random cube scramble", Cube.inverse(randomCube.solve()));
   return (
-    <div className='flex items-center justify-center h-screen'>
+    <div className='bg-slate-400 flex flex-col items-center justify-center h-screen'>
       <div className='grid grid-areas-layout grid-cols-layout grid-rows-layout w-80 h-60'>
         <FlatRubick pattern={randomCubeMatrix} />
       </div>
+
+      <div className='flex flex-row flex-wrap w-80 justify-center m-3'>
+        {
+          cubeSolve.split(" ").map(
+            (move, index) =>
+              <div className='m-1 font-bold' key={index}>
+                {move}
+              </div>
+          )
+        }
+      </div>
+
+
+      <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+        onClick={randomizeCube}>Scramble!
+      </button>
+
     </div>
   );
 }
