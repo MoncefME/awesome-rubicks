@@ -20,11 +20,10 @@ function App() {
   const randomizeCube = () => {
     setRandomCube(Cube.random());
     setCubeSolve(Cube.inverse(randomCube.solve()));
-    console.log("my random cube scramble", cubeSolve);
   }
 
   return (
-    <div className='bg-slate-400 flex flex-col items-center justify-center h-screen'>
+    <div className='bg-slate-400 flex flex-col items-center justify-center h-screen' >
       <div className='w-80 h-60'>
         <FlatRubick pattern={randomCubeMatrix} />
       </div>
@@ -32,10 +31,9 @@ function App() {
       <div className='flex flex-row flex-wrap w-80 justify-center m-3'>
         {cubeSolve.split(" ").map(
           (move, index) =>
-            <div className='m-1 font-bold' key={index}>
+            <div className='font-bold px-1 hover:bg-zinc-400 hover:rounded' key={index}>
               {move}
-            </div>
-        )
+            </div>)
         }
       </div>
 

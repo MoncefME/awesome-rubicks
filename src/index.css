@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
+    gap: 3px 3px;
     grid-template-areas:
         ". faceU . ."
         "faceL faceF faceR faceB"

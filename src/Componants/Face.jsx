@@ -6,7 +6,7 @@ const colors = ['bg-white', 'bg-red-600', 'bg-green-700', 'bg-yellow-300', 'bg-o
 function Face({ class_Name, facePattern }) {
 
     return (
-        <div className={`${class_Name} w-[80px] h-[80px]  grid grid-cols-3 grid-rows-3`}>
+        <div className={`${class_Name} w-[80px] h-[80px] grid grid-cols-3 grid-rows-3`}>
             {facePattern.map((pattern, index) =>
                 <Piece
                     color={colors[faces.indexOf(pattern)]}
